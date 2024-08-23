@@ -43,9 +43,42 @@ def random_class():
 #Boolean and comparison operator testing
 def bool_and_comp():
     a = "1"
-    b = "1"
+    b = 1
     print("is a equals to b", a == b, '\n', 'checking is a IS b ',
           a is b)  # both conditions holds true , but if you even add an extra space in any of them the object changes , the value doesnt, but the id does (you can check this by print(id(' ')))
 
     print(a and b)
+    print(a!=b)
+
+    #flow control statement
+    x=33
+    y=43
+    threshold=30
+    if x > threshold and y >threshold:
+        print("in the if block",(x+y)/2)
+    elif threshold>=30: #If the flow entered the 'IF' block then it will not enter in any other 'ELIF' block
+        print("also in the elif block")
+
+    #match/case operations
+    my_operations='Hello World'
+    match my_operations:
+        case "Read":
+            pass
+        case 'Div':
+            pass
+        case "hello world": # Match-case is case sensitive
+            print('hello world in caps lock off')
+        case "Hello World":
+            print("Hello Lock in Caps on")
+
+
+    # Ternary Operator conditions
+    fruit ="apple"
+    is_apple= "yes" if fruit=='apple' else "no"
+    print(is_apple)
+
+    #Checking the type of None Keyword
+    print(type(None))
+
+bool_and_comp()
 
