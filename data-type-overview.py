@@ -21,3 +21,12 @@ print("value of sin x:",math.sin(angle_radians),"\n","value of cos x:",math.cos(
 x=3.4 #interpreted as (x,0)
 y=9.8 #interpreted as (0,y)
 print("Eucledian distance between these two points on their respective axis is ",math.hypot(x,y))
+
+#Random Library Usage
+import random
+x,y=0,6
+dice_roll=random.randint(x,y)
+print("The digit on the dice will be ",dice_roll)
+rand_num=random.randrange(x,y) # return s a randomly selected number from the sequence
+print(rand_num)
+print(random.random()) #returns a random number between 0 and 1 , is double
