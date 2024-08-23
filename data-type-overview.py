@@ -1,3 +1,6 @@
+from numpy.ma.extras import ndenumerate
+
+
 def complex_num():
     # Checking on the complex numbers
     x = '1+2j'  # if you give space between the number ,+ sign and imaginary character then it wil throw an error
@@ -80,5 +83,37 @@ def bool_and_comp():
     #Checking the type of None Keyword
     print(type(None))
 
-bool_and_comp()
+
+#Checking the operations and basics of loops in python
+def loops():
+    #while loops
+    i=0
+    while i<5:
+        print('number is still growing in a WHILE LOOP',i)
+        i+=1
+
+    #for loop
+    x=[1,2,3,4,5,6,7]
+    print(x.__getitem__(3))
+    print(x.__iter__()) #list iterator used to do iteration on a specified range of a number
+    for num in x:
+        print('FOR num IN x :',num)
+
+    for i in range(0,4):
+        print("All the number within FOR LOOP and range 0 to 5",i)
+
+    #while-else loops
+    q=15
+    while q<21:#LEgal age to drink alcohol
+        print('Yet too small for drinking alcohol, Age:',q)
+        q+=1
+    else:
+        print('Now Big enough to drink, Age:',q)
+
+
+
+
+
+
+
 
