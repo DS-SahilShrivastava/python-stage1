@@ -110,10 +110,30 @@ def loops():
     else:
         print('Now Big enough to drink, Age:',q)
 
+#testing the properties and operations in string
+def string_ops():
+    print("Yes all of them belongs to str class" if type('a')==type("a")==type('''a''')==type("""a""") else "No from different classes")#the type of all these is string only
+    print('hello guys my name is: \t \n \"Sahil Shrivastava\" ') # (\'\') used for quoting inside the string
+    print('not this \r Only this \r Now this ') #only the string after the \r will be used and rest of the string prior to the \r will be discarded
 
+    #using slice operations in strings
+    my_str="Hello-World"
+    slice_object=slice(1,3,-1) # this is a slicer object that helps in slicing the string, it can be used as a index of the string
+    print(slice_object)
+    print("Slicing by slice() function :",my_str[slice_object],'\n',"Slicing the string by [:]",my_str[1:3])
+    for i in my_str.split("-"):
+        print("Splitting the ",i)
+    print(my_str.upper())
+    print(my_str.find("rl"))
 
+    #using format keyword
+    name='Sahil'
+    age='12'
+    company='EPAM System'
+    print('Hi , my name is {} and my age is {}. I work for {} as a Data Scientist'.format(name,age,company))
+    print(f"Hi, My name is {name}, and my age is {age}. And I work for Data Scientist {company}")
 
-
-
-
+    message=input("Input any 3 words, you will win you can guess it correct:")
+    if 'Sahil' or 'friend' or 'bottle' in message:
+        print(f"Hurrayy , You guessed the correct word {message}!!")
 
