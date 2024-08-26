@@ -1,4 +1,5 @@
 from asyncio import new_event_loop
+from tempfile import tempdir
 
 
 def complex_num():
@@ -202,4 +203,69 @@ def list_ops():
     print("List using list comprehension method:",new_even_list)
 
 
+#----------------------------------------------------------------------NEW FUNCTION-----------------------------------------------------------------------------------------------------------------------------------
 
+#checking on the operation in the tuple data-type
+def tuple_ops():
+    #initialisation of tuple can be done with or without parenthesis
+    my_colors=('blue','naragi','baingani','aakashi')
+    my_food='roti','rice','daal','vegetable'
+    print('Initialisation of the tuple ','\n with parenthesis:',type(my_colors),'\n without parenthesis',type(my_food))
+
+    # To create a tuple with one element, you must add an extra comma at the end:
+    it_should_be_tuple = 1,
+    print("Length of a tuple initialised as 1, ",len(it_should_be_tuple))
+
+    #packing and unpacking
+    #packing means assigning values to the tuple
+    #unpacking means extracting values of a tuple
+    (a,b,c)=(40,50,60)
+    print('packing the tuple into 3 variable a,b,c',a,b,c)
+    print(b)
+
+    cars=('audi','mercedes','BMW')
+    car1,car2,car3=cars
+    print(car1,car2,car3)
+
+    # Asterisk are used when the number of variables are less than the value of the tuple
+    car1, *rest_cars = cars
+    print('Unpacking the values in tuple using asterisk to the element at the end :',car1,rest_cars)
+
+    *car1, rest_cars,car3,car4 = cars
+    print('Unpacking the values by changing the position of the asterisk :',car1,rest_cars,car3,car4)
+
+    #Swapping the variables
+    #using a temporary variables
+    a=19
+    b=20
+    print(f'a and b before swapping are {a} and {b}')
+    temp=a
+    a = b
+    b=temp
+    print(f'a and b after swapping are {a} and {b}')
+
+    #without using temp variable
+    a,b=b,a
+    print(f'swapped a and b values by using packing unpacking  are {a} and {b}')
+
+    #using '==' and 'is' operator
+    x=(1,2,3,4)
+    y=(1,2,3,4)
+    print(x==y)
+    print(id(x),id(y)) #It's because a tuple is an immutable type. And Python uses this approach as part of memory management, not only with tuples. As a result, the Python interpreter does not create a duplicate of the tuple in memory for optimizing purposes.
+    print(x is y)
+
+    #checking the same for list
+    x=[1,2,3,4]
+    y=[1,2,3,4]
+    print(x==y)
+    print(id(x),id(y))
+    print(x is y)
+
+    x=2*100
+    y=2*100
+    print('for x=2*100 y=2*100',x==y,id(x),id(y),x is y)
+
+    x=(1,2,"python"*100)
+    y=(1,2,"python"*100)
+    print('for x=(1,2,"python"*100) y=(1,2,"python"*100)',x==y,id(x),id(y),x is y)
