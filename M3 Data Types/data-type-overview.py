@@ -269,3 +269,96 @@ def tuple_ops():
     x=(1,2,"python"*100)
     y=(1,2,"python"*100)
     print('for x=(1,2,"python"*100) y=(1,2,"python"*100)',x==y,id(x),id(y),x is y)
+
+def set_and_dict():
+    #SETS
+    new_set=set((1,4,'34','sahil'))
+    print(new_set)
+    my_set={1,2,3,'34','sahil'}
+    print(type(my_set))
+    my_dict={}
+    print(type(my_dict))
+
+    #Sets are iterable but do not record element position or order of insertion. Accordingly, sets do not support indexing, slicing, or other sequence-like behavior
+    int_set=set([1,2,4,2,1,3,4,1])
+    print(int_set)
+    #sets are iterable
+    for num in int_set:
+        print(num)
+    if int('2') in int_set:
+        print("yayaa")
+
+    # A hash value is used for identifying data.
+    # All the not hashable objects are commented , only tuples are hashable
+    # print(hash(int_set))          #set
+    # print(hash(list(int_set)))    #list
+    print(hash(tuple(int_set)))     #tuple
+    # print(hash(my_dict))          #dictionary
+
+
+    # Set Manipulations
+    # By Operators
+    # Union
+    a={1,2,3,4,5,6}
+    b={5,6,7,8,9}
+    print("Set a :",a,'\n Set b :',b)
+    union=a|b # or you can use a.union(b)
+    print(f"Union of the set {a} and {b} are :",union,type(union))
+    intersect=a&b # or you can use a.intersection(b)
+    print(f"Intersection of set {a} and {b} are : ",intersect,type(intersect))
+    difference=a-b # or you can use a.difference(b)
+    print(f"Difference of the set {a} and {b} are : ",difference,type(difference))
+
+    #By Methods
+    c={11,12,12,14,15}
+    a.update(b,c)
+    print("you can use update method also to fetch the union of the sets :",a)
+
+    a.add(999)
+    print('you can add any element in a set by using .add() method , here we have added 999',a)
+    a.remove(999)
+    print('you can remove any element in a set by using .remove() method , here we have removed 999',a)
+    a.clear()
+    print('Or you can clear the whole set by calling .clear() method: a=',a)
+
+    #DICTIONARY
+    my_dict=dict([(1,'sahil'),(2,'shrivastava')])
+    print(my_dict)
+    print(f'the data type for {my_dict} is ',type(my_dict))
+
+    print(my_dict[2])
+    my_dict[3]='The'
+    my_dict[4]='Boss'
+    print(my_dict)
+
+    # To remove a pair from the dictionary, use the del statement with an exact key to delete
+    del my_dict[3]
+
+    #Iteration in dictionary
+    for i in my_dict.items():
+        print(i,type(i))
+    for i in my_dict.keys():
+        print(i)
+    for i in my_dict.values():
+        print(i)
+
+    #Dictionary Manipulations
+    #The get() method takes a key as a parameter and returns the value by this key. The method doesn't raise an error if the key doesn't exist
+    print(my_dict.get(4))
+    print(my_dict.get(9))
+
+    #The update() method takes another dictionary or some collection of key-value pairs as an argument and updates all matching pairs in the original dictionary and adds key-value pairs for keys that don’t exist in the original dictionary
+    blank_d = {
+        "name": "",
+        "age": 0,
+        "is_registered": False,
+        "rate": 0,
+        "total_score": 0,
+        "linked_ids": []
+    }
+
+    my_dict.update(blank_d)
+    print(my_dict)
+
+
+set_and_dict()
