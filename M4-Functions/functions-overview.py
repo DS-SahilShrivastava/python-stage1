@@ -1,4 +1,6 @@
 #This file shares the knowledge related to the topic of Functions
+from functools import reduce
+
 #FIRST CLASS FUNCTION
 def first_class():
     #assigning functions to variables
@@ -91,4 +93,76 @@ def functional_argument():
     foo(1, 2, 3, 'not default', 6, 'it is an arg too', kwd_only1=4,
         kwd_only2='not default', kwarg1=5, kwarg2='it is a kwarg too')
 
-functional_argument()
+def lambda_func():
+    # The lambda function is an anonymous inline function consisting of a single expression which is evaluated when the function is called
+    # universal function expression VS Lambda expression
+    def sum(a,b):
+        return a+b
+    sum_lambda=lambda a,b : a+b
+    sum_lambda(4,5)
+    # print(help(list.sort))
+
+    def key_arg():
+        lst = [(1, 'one'), (2, 'two'), (3, 'three'), (4, 'four')]
+        # print(sorted(lst))
+        int_lst = ['123', '264', '345', '456']
+        filter_function = lambda pair_item: pair_item[1]
+
+        def filter_function2(pair_item):
+            print(pair_item[1])
+            return pair_item[1]
+
+        # If a key function is given, apply it once to each list item and sort them,ascending or descending, according to their function values.
+        # this lst.sort here is calling the 0th item out of every traversal in the data structure and then based on that key , the elements are sorted
+        int_lst.sort(key=filter_function2, reverse=True)
+        print(int_lst)
+        lst.sort(key=lambda pair_item: pair_item[1], reverse=False)
+        print(lst)
+
+    def map_filter_reduce():
+        # Map function
+        # map(function, iterable) returns an iterator that applies a function to every item of the iterable.
+        nums = [1, 2, 3, 4, 5, 6, 7, 8]
+        strs = ['a', 'b', 'c']
+        double_all = map(lambda x: x * 2, strs)
+        square_all = map(lambda num: num ** 2, nums)
+        print(list(square_all), '\n', list(double_all))
+
+        # Filter function
+        # filter(function, iterable) returns an iterator from elements of the iterable for which the function returns True. If the function is None, the identity function is assumed; that is, all elements of the iterable that are false are removed.
+        nums2 = [23, 46, 78, 65, 32, 12, 90, 75, 34, 66, 43, 23]
+        filter_even = filter(lambda x: x % 2 == 0, nums2)
+        print(list(filter_even))
+        bool_lst = [1, 0, 0, 21, 12, 10, 0, 0, 0, 1, 1, 1, 1, 0]
+
+        # filter(None, iterable) Purpose: Filters elements from the iterable by removing elements that are considered False in a boolean context. Behavior: Here, None is used as a shorthand for filtering out elements that are falsy (i.e., False, None, 0, empty strings, empty lists, etc.).
+        none_filter = filter(None, bool_lst)
+        print(list(none_filter))
+
+        reduce_lamb = reduce(lambda x, y: x + y, nums2)
+        print(reduce_lamb)
+
+        x = 5
+        x_lst = [x for x in range(1, x + 1)]
+        factorial = reduce(lambda z, y: z * y, x_lst)
+        print(x_lst, factorial)
+
+    def recursion():
+        def fibonacci(n):
+            if n==0 or n==1:
+                value=1
+            elif n==2:
+                value =1
+            else:
+                value = fibonacci(n-2) + fibonacci(n-1)
+            return value
+        n=9
+        print("LOCAL KEYWORDS ARE AS : ",locals())
+        print(fibonacci(n))
+    #The biggest con is that the recursion functions use a lot of space.
+    recursion()
+
+
+java='language'
+print("GLOBAL KEYWORDS ARE AS : ",globals())
+lambda_func()
